@@ -1,6 +1,6 @@
 import '../../../css/style.css';
 import Header from '../components/Header';
-import SideBar from '../SideBar';
+import SideBar from '../components/SideBar';
 import Gallery from '../components/Gallery';
 import Detail from './Detail';
 import Overview from '../components/Overview';
@@ -8,6 +8,8 @@ import  {galeryimages, notifications} from '../../../globals/data'
 import React from 'react';
 import {GLOBALS} from '../../../globals/globals-variables'
 import axios from "axios";
+
+//Se utiliza una clase para ver como se utilizar una clase con state y props
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,7 @@ class Home extends React.Component {
      };
   }
 
+  //Metodo async para llamar un API con AXIOS
   ObtainWishList = async () => {
     try {
       const serviceUrl = "https://jsonplaceholder.typicode.com/comments";
@@ -26,13 +29,19 @@ class Home extends React.Component {
         
         }
       };
-      const response = await axios.get(serviceUrl,config).then((response) =>{
-        console.log(response.data);       
+      await axios.get(serviceUrl,config)
+      .then((response) =>{            
         this.setState({       
           initLoading: false,
           datawishlist: response.data
         });
-      }) ;      
+      })
+      .catch((ex) => {
+        this.setState({
+          initLoading: false
+        });
+        console.log(ex.toString());
+      })    
       
     } catch (err) {
       this.setState({
@@ -41,6 +50,8 @@ class Home extends React.Component {
       console.log(err);
     }
   };
+
+
   componentDidMount() { 
       if (this.state.datawishlist === null) {      
         this.ObtainWishList();
@@ -52,23 +63,16 @@ class Home extends React.Component {
   render() {
     
     return (
-      <div className="container">
-     
-  <Header data={notifications}></Header>\
-  
-      <div className="content">
-        
-      <SideBar></SideBar>
-  
-          <main className="hotel-view">
-              <Gallery data={galeryimages} isLoading={this.state.initLoading}></Gallery>
-              <Overview></Overview>
-  
-              <Detail/>
-  
-  
-          </main>
-      </div>
+      <div className="container">     
+        <Header data={notifications}></Header>  
+        <div className="content">        
+        <SideBar></SideBar>  
+            <main className="hotel-view">
+                <Gallery data={galeryimages} isLoading={this.state.initLoading}></Gallery>
+                <Overview></Overview>  
+                <Detail/>
+            </main>
+        </div>
   </div>
     );
   }

@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Loading from '../../../shared/component/Loading'
 const Gallery = (props) => {  
 
  function Mostrar() {
     if(props.isLoading){
-       return <h3>Datos cargando</h3>
+       return <Loading></Loading>
     }else{
         return  <div className="gallery">
         <figure className="gallery__item">
