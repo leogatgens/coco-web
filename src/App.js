@@ -1,10 +1,10 @@
 import './App.css';
 import './css/style.css';
-import Header from './Header';
-import SideBar from './SideBar';
-import Gallery from './Gallery';
+import Header from './views/home/Header';
+import SideBar from './views/home/SideBar';
+import Gallery from './views/home/Gallery';
 import Detail from './views/home/container/Detail';
-import Overview from './Overview';
+import Overview from './views/home/Overview';
 function App() {
   return (
     <div className="container">

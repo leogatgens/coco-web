@@ -2,7 +2,7 @@ import react from 'react';
 
 const Review = (props) => {  
  
-    return(
+    return(     
     <figure className="review">
     <blockquote className="review__text">
     {props.data.review}

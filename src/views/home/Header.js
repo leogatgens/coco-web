@@ -1,7 +1,7 @@
 import react from 'react';
-import { ReactComponent as IconMagnifyingGlass } from './img/SVG/magnifying-glass.svg';
-import { ReactComponent as IconBookmar } from './img/SVG/bookmark.svg';
-import { ReactComponent as IconChat } from './img/SVG/chat.svg';
+import { ReactComponent as IconMagnifyingGlass } from '../../img/SVG/magnifying-glass.svg';
+import { ReactComponent as IconBookmar } from '../../img/SVG/bookmark.svg';
+import { ReactComponent as IconChat } from '../../img/SVG/chat.svg';
 
 
 function Header(){

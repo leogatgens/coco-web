@@ -1,10 +1,10 @@
 
 import react from 'react';
 
-import { ReactComponent as IconHome } from './img/SVG/home.svg';
-import { ReactComponent as IconAircraft } from './img/SVG/aircraft-take-off.svg';
-import { ReactComponent as IconKey } from './img/SVG/key.svg';
-import { ReactComponent as IconMap } from './img/SVG/map.svg';
+import { ReactComponent as IconHome } from '../../img/SVG/home.svg';
+import { ReactComponent as IconAircraft } from '../../img/SVG/aircraft-take-off.svg';
+import { ReactComponent as IconKey } from '../../img/SVG/key.svg';
+import { ReactComponent as IconMap } from '../../img/SVG/map.svg';
 function SideBar(){
     return(
 <nav className="sidebar">
