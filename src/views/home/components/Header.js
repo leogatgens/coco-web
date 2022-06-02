@@ -1,10 +1,11 @@
-import react from 'react';
-import { ReactComponent as IconMagnifyingGlass } from '../../img/SVG/magnifying-glass.svg';
-import { ReactComponent as IconBookmar } from '../../img/SVG/bookmark.svg';
-import { ReactComponent as IconChat } from '../../img/SVG/chat.svg';
+import React from 'react';
+import { ReactComponent as IconMagnifyingGlass } from '../../../img/SVG/magnifying-glass.svg';
+import { ReactComponent as IconBookmar } from '../../../img/SVG/bookmark.svg';
+import { ReactComponent as IconChat } from '../../../img/SVG/chat.svg';
 
 
-function Header(){
+function Header(props){
+    let totalNotifications = props.data.length;
     return(
         <header className="header">
         <img src="img/logo.png" alt="trillo logo" className="logo"/>
@@ -25,7 +26,7 @@ function Header(){
                      {/* <use xlink:href="img/sprite.svg#icon-bookmark"></use>  */}
                      <IconBookmar></IconBookmar>
                 </svg>
-                <span className="user-nav__notification">7</span>
+                <span className="user-nav__notification">{totalNotifications}</span>
             </div>
             <div className="user-nav__icon-box">
                 <svg className="user-nav__icon">

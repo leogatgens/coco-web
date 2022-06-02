@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import { ReactComponent as IconStar } from '../../../img/SVG/star.svg';
 import { ReactComponent as IconLocationPin } from '../../../img/SVG/location-pin.svg';
 const Overview = () =>{

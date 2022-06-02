@@ -1,5 +1,5 @@
 
-import react from 'react';
+import React from 'react';
 
 import { ReactComponent as IconHome } from '../../img/SVG/home.svg';
 import { ReactComponent as IconAircraft } from '../../img/SVG/aircraft-take-off.svg';

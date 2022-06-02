@@ -7,7 +7,7 @@ export const GLOBALS = {
   // rootWebSite : 'https://youtripyouwish.s3.us-east-2.amazonaws.com/' ,
   // rootImages : 'https://youtripyouwish.s3.us-east-2.amazonaws.com/img'
 
-  rootAPI: "http://localhost:5208/api",
+  rootAPI: "https://api.publicapis.org",
   rootWebSite: "http://localhost:3000",
   rootImages: "http://localhost:3000/img"
 };

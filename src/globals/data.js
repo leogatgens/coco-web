@@ -185,3 +185,20 @@ export const reviewsInfo = [
        
     ];
 
+    export const notifications = [
+        {            
+            "text": "adfa adsfadfadsf adf",            
+            "id": 1  
+        },
+        {
+            "path": "tgadsgfasdf ads f",            
+            "id": 2
+        },
+        {
+            "path": "ghjgh hgjghjkjyutg",            
+            "id": 3
+        }
+       
+    ];
+
+
