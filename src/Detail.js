@@ -1,6 +1,6 @@
 import react from 'react';
 
-function Detail() {  
+const Detail = () => {  
 
     return(
 <div className="detail">
@@ -62,6 +62,22 @@ function Detail() {
             <div className="review__rating">9.3</div>
         </figcaption>
     </figure>
+
+    <figure className="review">
+        <blockquote className="review__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi.
+        </blockquote>
+        <figcaption className="review__user">
+            <img src="img/user-2.jpg" alt="User 1" className="review__photo"/>
+            <div className="review__user-box">
+                <p className="review__user-name">Mary Thomas</p>
+                <p className="review__user-date">Sept 13th, 2017</p>
+            </div>
+            <div className="review__rating">9.3</div>
+        </figcaption>
+    </figure>
+
+   
 
     <button className="btn-inline">Show all <span>&rarr;</span></button>
 </div>
