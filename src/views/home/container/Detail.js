@@ -28,8 +28,9 @@ const Detail = (props) => {
             })    
             
          
-      }    
-      consultar();
+      }   
+
+      consultar(); //Llamar la funcion definida anteriormente.Si la define asi afuera no funciona. Afuera necesita usar el [] al final
       },[]);
     function ShowReviews() {
         const reviewscounter = reviewsInfo.length;
