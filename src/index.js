@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './views/home/container/Home';
 import reportWebVitals from './reportWebVitals';
 
+//Por alguna razon stric mode muestrar didmount dos veces por tener esto https://andreasheissenberger.medium.com/react-components-render-twice-any-way-to-fix-this-91cf23961625
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>//Por alguna razon muestrar didmount dos veces por tener esto https://andreasheissenberger.medium.com/react-components-render-twice-any-way-to-fix-this-91cf23961625
+  <React.StrictMode>
     <App/>
   </React.StrictMode>
 );

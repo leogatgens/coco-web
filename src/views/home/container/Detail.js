@@ -1,24 +1,58 @@
-import react from 'react';
+
 import Review from '../components/Review';
 import  {reviewsInfo,galeryimages } from '../../../globals/data'
-import React from 'react';
-const Detail = () => {  
-    
+import React, { useState, useEffect } from 'react';
+import Loading from '../../../shared/component/Loading';
+import axios from "axios";
+const Detail = (props) => {  
+    const [initLoading, setinitLoading] = useState(true);
+
+
+    useEffect(() => {     
+      const  consultar = async () => {         
+            const serviceUrl = "https://jsonplaceholder.typicode.com/comments";
+            let config = {
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": "application/json"              
+              }
+            };
+            await axios.get(serviceUrl,config)
+            .then((response) =>{ 
+                       
+              setinitLoading(false);
+            })
+            .catch((ex) => {
+              setinitLoading(false);
+              console.log(ex.toString());
+            })    
+            
+         
+      }    
+      consultar();
+      },[]);
     function ShowReviews() {
         const reviewscounter = reviewsInfo.length;
-        let reviewcomponent;
-
+        if (initLoading ===true)
+        {
+            return <Loading/>
+        }
         if (reviewscounter > 0) {
-            reviewcomponent = reviewsInfo.map((item) => {
+            return reviewsInfo.map((item) => {
                 // Construct the onClick with our bound function
                 return <Review key={item.rating} data={item}></Review>;
             });
 
         } else {
-            reviewcomponent = <h3 className='title'>No reviews</h3>;
+            return <h3 className='title'>No reviews</h3>;
         }
-        return reviewcomponent;
+     
     }
+
+    
+      
+  
+    
 return(          
     
     <div className="detail">
