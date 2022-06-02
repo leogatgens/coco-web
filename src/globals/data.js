@@ -168,3 +168,20 @@ export const reviewsInfo = [
             "date": "2021-08-29"
         }
     ];
+
+    export const galeryimages = [
+        {            
+            "path": "./img/hotel-1.jpg",            
+            "id": 1  
+        },
+        {
+            "path": "./img/hotel-2.jpg",            
+            "id": 2
+        },
+        {
+            "path": "./img/hotel-3.jpg",            
+            "id": 3
+        }
+       
+    ];
+

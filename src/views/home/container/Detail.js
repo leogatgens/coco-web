@@ -1,21 +1,24 @@
 import react from 'react';
 import Review from '../components/Review';
-import  {reviewsInfo} from '../../../globals/data'
+import  {reviewsInfo,galeryimages } from '../../../globals/data'
 import React from 'react';
 const Detail = () => {  
-    const reviewscounter = reviewsInfo.length;
-    let reviewcomponent;
+    
+    function ShowReviews() {
+        const reviewscounter = reviewsInfo.length;
+        let reviewcomponent;
 
-    if (reviewscounter < 0) {
-        reviewcomponent = reviewsInfo.map((item) => {          
-            // Construct the onClick with our bound function
-            return <Review key={item.rating} data={item}></Review>
-            }); 
+        if (reviewscounter > 0) {
+            reviewcomponent = reviewsInfo.map((item) => {
+                // Construct the onClick with our bound function
+                return <Review key={item.rating} data={item}></Review>;
+            });
 
-    } else {
-        reviewcomponent = <h3 className='title'>No reviews</h3>;
+        } else {
+            reviewcomponent = <h3 className='title'>No reviews</h3>;
+        }
+        return reviewcomponent;
     }
-
 return(          
     
     <div className="detail">
@@ -50,7 +53,7 @@ return(
     </div>
 
     <div className="user-reviews">
-        {reviewcomponent} 
+        {ShowReviews()} 
         <button className="btn-inline">Show all <span>&rarr;</span></button>
     </div>
 
@@ -67,6 +70,8 @@ return(
 </div>
 )
 
+
+  
 }
 
 export default Detail;

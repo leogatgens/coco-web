@@ -1,6 +1,6 @@
 import react from 'react';
-import { ReactComponent as IconStar } from '../../img/SVG/star.svg';
-import { ReactComponent as IconLocationPin } from '../../img/SVG/location-pin.svg';
+import { ReactComponent as IconStar } from '../../../img/SVG/star.svg';
+import { ReactComponent as IconLocationPin } from '../../../img/SVG/location-pin.svg';
 const Overview = () =>{
     return(
 <div className="overview">
