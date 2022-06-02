@@ -3,7 +3,7 @@ import './css/style.css';
 import Header from './Header';
 import SideBar from './SideBar';
 import Gallery from './Gallery';
-import Detail from './Detail';
+import Detail from './views/home/container/Detail';
 import Overview from './Overview';
 function App() {
   return (
