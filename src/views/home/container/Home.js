@@ -29,7 +29,7 @@ class Home extends React.Component {
         
         }
       };
-      await axios.get(serviceUrl,config)
+      await axios.get(serviceUrl,config) //then es usando promises, se puede asignar a una variable si quiere sin promises
       .then((response) =>{            
         this.setState({       
           initLoading: false,

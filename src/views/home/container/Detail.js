@@ -1,9 +1,10 @@
 
 import Review from '../components/Review';
-import  {reviewsInfo,galeryimages } from '../../../globals/data'
+import  {reviewsInfo } from '../../../globals/data'
 import React, { useState, useEffect } from 'react';
 import Loading from '../../../shared/component/Loading';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 const Detail = (props) => {  
     const [initLoading, setinitLoading] = useState(true);
 
@@ -39,7 +40,8 @@ const Detail = (props) => {
             return <Loading/>
         }
         if (reviewscounter > 0) {
-            return reviewsInfo.map((item) => {
+            let top4Review = reviewsInfo.slice(0,4)
+            return top4Review.map((item) => {
                 // Construct the onClick with our bound function
                 return <Review key={item.rating} data={item}></Review>;
             });
@@ -50,10 +52,17 @@ const Detail = (props) => {
      
     }
 
-    
-      
+    const navigate = useNavigate();
+   const ShowMessage = (e)  =>{
+ 
+     navigate('/allreviews')
   
-    
+    }
+  
+    const ShowBookNowPage = (e) =>{
+        alert("Redirect to new page booking");
+        
+    }
 return(          
     
     <div className="detail">
@@ -89,14 +98,14 @@ return(
 
     <div className="user-reviews">
         {ShowReviews()} 
-        <button className="btn-inline">Show all <span>&rarr;</span></button>
+        <button className="btn-inline" onClick={ShowMessage}>Show all <span>&rarr;</span></button>
     </div>
 
     <div className="cta">
         <h2 className="cta__book-now">
             Good news! We have 4 free rooms for your selected dates!
         </h2>
-        <button className="btn">
+        <button className="btn" onClick={ShowBookNowPage}>
             <span className="btn__visible">Book now</span>
             <span className="btn__invisible">Only 4 rooms left</span>
         </button>
