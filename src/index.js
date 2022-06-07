@@ -11,8 +11,11 @@ import {
 //Por alguna razon stric mode muestrar didmount dos veces por tener esto https://andreasheissenberger.medium.com/react-components-render-twice-any-way-to-fix-this-91cf23961625
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+
   <React.StrictMode>
+    
     <BrowserRouter>
+    
     <Routes>
   <Route path="/" element={<App />}>
     {/* <Route path="expenses" element={<Expenses />} />
@@ -28,6 +31,7 @@ root.render(
   </Route>
   <Route path="/allreviews" element={<ListOfReviews></ListOfReviews>} />
 </Routes>
+
     </BrowserRouter>
   </React.StrictMode>
  

@@ -1,47 +1,62 @@
 
 import Review from '../components/Review';
-import  {reviewsInfo } from '../../../globals/data'
+
 import React, { useState, useEffect } from 'react';
 import Loading from '../../../shared/component/Loading';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import {GLOBALS} from "../../../globals/globals-variables"
 const Detail = (props) => {  
     const [initLoading, setinitLoading] = useState(true);
+    const [reviews, setReviews] = useState([{id: "",
+    name: ""}]);
 
 
     useEffect(() => {     
       const  consultar = async () => {         
-            const serviceUrl = "https://jsonplaceholder.typicode.com/comments";
+            const serviceUrl = `${GLOBALS.rootAPI}/reviews`;;
             let config = {
               headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Content-Type": "application/json"              
+                          "Content-Type": "application/json"
+              
               }
             };
-            await axios.get(serviceUrl,config)
-            .then((response) =>{ 
-                       
-              setinitLoading(false);
-            })
-            .catch((ex) => {
-              setinitLoading(false);
-              console.log(ex.toString());
-            })    
-            
+         let response =  await axios.get(serviceUrl,config);
          
-      }   
+         console.log(response.data);
+         if(response.data.length > 0){    
+            var testIfJson = response.data;
+            if (typeof testIfJson == "object"){
+                //Json
+                console.log("soy json");
+            } else {
+                //Not Json
+                console.log("shit");
+            } 
+             setReviews(response.data);
+             setinitLoading(false);
+
+         }else{
+            setinitLoading(false);
+         }
+
+         
+      }  
+
 
       consultar(); //Llamar la funcion definida anteriormente.Si la define asi afuera no funciona. Afuera necesita usar el [] al final
       },[]);
-    function ShowReviews() {
-        const reviewscounter = reviewsInfo.length;
-        if (initLoading ===true)
-        {
+      
+    const ShowReviews = () => {
+        const reviewscounter = reviews.length;        
+        if (initLoading ===true){
             return <Loading/>
         }
         if (reviewscounter > 0) {
-            let top4Review = reviewsInfo.slice(0,4)
-            return top4Review.map((item) => {
+            var filteredItems = reviews;
+            
+            filteredItems = filteredItems.filter(item => item.rating < 3);      
+            return filteredItems.map((item) => {
                 // Construct the onClick with our bound function
                 return <Review key={item.rating} data={item}></Review>;
             });

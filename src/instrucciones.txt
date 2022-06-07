@@ -1,0 +1,23 @@
+-----------------------------------------
+-----------OPCIONES PARA LIBERAR---------
+-----------------------------------------
+https://www.netlify.com/
+https://vercel.com/
+
+Para liberar con npm install -g vercel
+1. Primera vez vercel login(necesita una cuenta)
+2. vercel en la carpeta del proyecto. configurar
+3. Para liberar cambios luego comando : vercel --prod o linkear con github por ejemplo
+
+
+----------------------------------------
+----------------PARA SASS---------------
+----------------------------------------
+   "watch:sass": "node-sass src/sass/main.scss src/css/style.css -w",
+    "compile:sass": "node-sass src/sass/main.scss src/css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' src/css/style.comp.css -o src/css/style.prefix.css",
+    "compress:css": "node-sass src/css/style.prefix.css src/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+
+    NPM npm run watch:sass --- para ver cambios en localhost
+    npm rum build:css --- Para compilar el sass para liberarlo.
