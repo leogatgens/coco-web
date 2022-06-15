@@ -1,6 +1,6 @@
 import React from "react";
-
-
+import axios from "axios";
+import {GLOBALS} from "../../../globals/globals-variables"
 class AddReview extends React.Component{
 
     constructor(props) {
@@ -14,6 +14,18 @@ class AddReview extends React.Component{
             review : this.state.review
         }
         console.log(newReview);
+        const serviceUrl = `${GLOBALS.rootAPI}/reviews`;;
+        let config = {
+            headers: {
+                    "Content-Type": "application/json"
+        
+            }
+         };
+        axios.post(serviceUrl,this.state.review,config) //then es usando promises, se puede asignar a una variable si quiere sin promises
+        .then(response =>  console.log(response.data));
+      
+    //    const response = await axios.post('https://reqres.in/api/articles', review);
+    //    this.setState({ articleId: response.data.id });
     }
 
     HandleOnChange = (event) => {
