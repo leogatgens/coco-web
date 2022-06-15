@@ -1,19 +1,19 @@
-
-import { Link } from 'react-router-dom';
-
+//Third part components
 import '../../../css/style.css';
-
-import Loading from '../../../shared/component/Loading';
-import React, { useState, useEffect,useLayoutEffect } from 'react';
-import {GLOBALS} from "../../../globals/globals-variables"
-import axios from "axios";
-import Review from '../../home/components/Review';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect,useLayoutEffect } from 'react';
+import axios from "axios";
+//Components coco web
+import {GLOBALS} from "../../../globals/globals-variables"
+import Review from '../../home/components/Review';
+import Loading from '../../../shared/component/Loading';
+import AddReview from '../components/AddReview';
+
 const ListOfReviews = (props) =>{
     const [initLoading, setinitLoading] = useState(true);
 
-    const [reviews, setReviews] = useState([{id: "",
-    name: ""}]);
+    const [reviews, setReviews] = useState([{id: "",name: ""}]);
 
 
     const location = useLocation();
@@ -49,9 +49,7 @@ const ListOfReviews = (props) =>{
 
          }else{
             setinitLoading(false);
-         }
-
-         
+         }         
       }  
       consultar(); //Llamar la funcion definida anteriormente.Si la define asi afuera no funciona. Afuera necesita usar el [] al final
       },[]);
@@ -74,7 +72,8 @@ const ListOfReviews = (props) =>{
     return(
         <div className='container'>
             <Link to="/">Back</Link>
-            <h1>ESto es la nueva pagina</h1>
+            <AddReview></AddReview>            
+            <h1>All reviews</h1>
             {ShowReviews()}
         </div>
 

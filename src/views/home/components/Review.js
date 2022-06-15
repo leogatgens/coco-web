@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Review = (props) => {  
- console.log(props);
+//  console.log(props);
     return(     
     <figure className="review">
     <blockquote className="review__text">

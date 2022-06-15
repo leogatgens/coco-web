@@ -592,3 +592,14 @@
         animation: pulsate 1s infinite;
     }
 }
+
+///////////////////////////////////////////////
+// ADD REVIEW FORM
+.addreviewform {
+    flex: 0 0 40%;
+    background-color: red;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
