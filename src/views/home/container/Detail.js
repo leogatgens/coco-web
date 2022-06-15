@@ -1,6 +1,5 @@
 
 import Review from '../components/Review';
-
 import React, { useState, useEffect } from 'react';
 import Loading from '../../../shared/component/Loading';
 import axios from "axios";

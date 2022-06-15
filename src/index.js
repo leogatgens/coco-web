@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './views/home/container/Home';
 import reportWebVitals from './reportWebVitals';
-import ListOfReviews from './views/reviews/ListOfReviews';
+import ListOfReviews from './views/reviews/container/ListOfReviews';
 import {
   BrowserRouter,
   Routes,
