@@ -9,11 +9,15 @@ class AddReview extends React.Component{
       }
     HandleOnSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target);
+        
         var newReview = {
-            review : this.state.review
+            date: "2022-05-13",
+            rating: 50,
+            review: this.state.review,
+            useravatar: "/sbin/cutting_edge_manager_senior.vss.cgm",
+            username: "Ricky"
         }
-        console.log(newReview);
+        
         const serviceUrl = `${GLOBALS.rootAPI}/reviews`;;
         let config = {
             headers: {
@@ -21,20 +25,23 @@ class AddReview extends React.Component{
         
             }
          };
-        axios.post(serviceUrl,this.state.review,config) //then es usando promises, se puede asignar a una variable si quiere sin promises
-        .then(response =>  console.log(response.data));
+
+         console.log(this.props);
+        axios.post(serviceUrl,newReview ,config) //then es usando promises, se puede asignar a una variable si quiere sin promises
+        .then(response =>  {console.log(response.data); this.props.onAddReview(newReview);} );
       
+        
     //    const response = await axios.post('https://reqres.in/api/articles', review);
     //    this.setState({ articleId: response.data.id });
     }
 
     HandleOnChange = (event) => {
-      
-        console.log(event);
+     
+        
         this.setState({
             review : event.target.value
         });
-
+        
     }
     render(){
         return (

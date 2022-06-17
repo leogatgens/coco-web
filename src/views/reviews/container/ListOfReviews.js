@@ -12,16 +12,14 @@ import AddReview from '../components/AddReview';
 
 const ListOfReviews = (props) =>{
     const [initLoading, setinitLoading] = useState(true);
-
     const [reviews, setReviews] = useState([{id: "",name: ""}]);
-
+    const algo = reviews.ski.filter()
 
     const location = useLocation();
     // Scroll to top if path changes
     useLayoutEffect(() => {
       window.scrollTo(0, 0);
-    }, [location.pathname]);
-  
+    }, [location.pathname]);  
 
     useEffect(() => {     
       const  consultar = async () => {         
@@ -34,16 +32,9 @@ const ListOfReviews = (props) =>{
             };
          let response =  await axios.get(serviceUrl,config);
          
-         console.log(response.data);
+        
          if(response.data.length > 0){    
-            var testIfJson = response.data;
-            if (typeof testIfJson == "object"){
-                //Json
-                console.log("soy json");
-            } else {
-                //Not Json
-                console.log("shit");
-            } 
+            var testIfJson = response.data;     
              setReviews(response.data);
              setinitLoading(false);
 
@@ -53,6 +44,7 @@ const ListOfReviews = (props) =>{
       }  
       consultar(); //Llamar la funcion definida anteriormente.Si la define asi afuera no funciona. Afuera necesita usar el [] al final
       },[]);
+
       const ShowReviews = () => {
         const reviewscounter = reviews.length;        
         if (initLoading ===true){
@@ -69,10 +61,20 @@ const ListOfReviews = (props) =>{
         }
      
     }
+ 
+    useEffect(() => {     
+    },[reviews]);
+
+    const onAddReview = (newReview) =>{    
+        var actualReviews = reviews;
+        actualReviews = actualReviews.push(newReview);
+       setReviews(actualReviews);
+       console.log(reviews);
+    }
     return(
         <div className='container'>
             <Link to="/">Back</Link>
-            <AddReview></AddReview>            
+            <AddReview onAddReview={onAddReview}></AddReview>            
             <h1>All reviews</h1>
             {ShowReviews()}
         </div>
