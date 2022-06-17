@@ -62,8 +62,7 @@ const ListOfReviews = (props) =>{
      
     }
  
-    useEffect(() => {     
-    },[reviews]);
+  
 
     const onAddReview = (newReview) =>{    
         var  updatedReviews = [...reviews, newReview];        
