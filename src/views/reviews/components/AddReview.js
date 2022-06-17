@@ -26,7 +26,7 @@ class AddReview extends React.Component{
             }
          };
 
-         console.log(this.props);
+         
         axios.post(serviceUrl,newReview ,config) //then es usando promises, se puede asignar a una variable si quiere sin promises
         .then(response =>  {console.log(response.data); this.props.onAddReview(newReview);} );
       

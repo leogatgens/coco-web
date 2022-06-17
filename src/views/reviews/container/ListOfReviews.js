@@ -13,7 +13,7 @@ import AddReview from '../components/AddReview';
 const ListOfReviews = (props) =>{
     const [initLoading, setinitLoading] = useState(true);
     const [reviews, setReviews] = useState([{id: "",name: ""}]);
-    const algo = reviews.ski.filter()
+    
 
     const location = useLocation();
     // Scroll to top if path changes
@@ -66,10 +66,9 @@ const ListOfReviews = (props) =>{
     },[reviews]);
 
     const onAddReview = (newReview) =>{    
-        var actualReviews = reviews;
-        actualReviews = actualReviews.push(newReview);
-       setReviews(actualReviews);
-       console.log(reviews);
+        var  updatedReviews = [...reviews, newReview];        
+       setReviews(updatedReviews);
+    
     }
     return(
         <div className='container'>
