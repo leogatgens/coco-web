@@ -597,9 +597,13 @@
 // ADD REVIEW FORM
 .addreviewform {
     flex: 0 0 40%;
-    background-color: red;
+    background-color: var(--color-grey-light-2),;
     height: 25vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.allreviews{    
+    max-width: 120rem;
+    margin-left: 2.5rem;
 }

@@ -72,9 +72,11 @@ const ListOfReviews = (props) =>{
     return(
         <div className='container'>
             <Link to="/">Back</Link>
-            <AddReview onAddReview={onAddReview}></AddReview>            
+            <AddReview onAddReview={onAddReview}></AddReview>   
+            <div className='allreviews'>
             <h1>All reviews</h1>
             {ShowReviews()}
+            </div>         
         </div>
 
     );
