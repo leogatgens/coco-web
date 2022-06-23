@@ -13,20 +13,21 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = { initLoading: true,
-      galeryimages : null
+      galeryimages : []
      };
   }
 
   //Metodo async para llamar un API con AXIOS
   ObtainAllReviews = async () => {
     try {
-      const serviceUrl = `${GLOBALS.rootAPI}/gallery`;;
+      const serviceUrl = `${GLOBALS.rootAPI}/gallery`;
       let config = {
-        headers: {
-                    "Content-Type": "application/json"
+        headers: {    
+          "Content-Type": "application/json",      
+          "x-api-key": "5Vqg81rmkG59NzsKm22qi3S3MOnZyYhvaymCXVN7"                      
         
-        }
-      };
+      }
+    };      
       await axios.get(serviceUrl,config) //then es usando promises, se puede asignar a una variable si quiere sin promises
       .then((response) =>{            
         this.setState({       
@@ -51,10 +52,8 @@ class Home extends React.Component {
 
 
   componentDidMount() { 
-      if (this.state.galeryimages === null) {      
-        this.ObtainAllReviews();
-        console.log("componentDidMount TripsContainer");
-        console.log(this.state.galeryimages);      
+      if (this.state.galeryimages.length === 0) {      
+        this.ObtainAllReviews();        
       } 
   }
 

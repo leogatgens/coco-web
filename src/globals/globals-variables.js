@@ -9,5 +9,6 @@ export const GLOBALS = {
 
   rootAPI: "https://lqj18hn1ya.execute-api.us-east-2.amazonaws.com/dev",
   rootWebSite: "http://localhost:3000",
-  rootImages: "http://localhost:3000/img"
+  rootImages: "http://localhost:3000/img",
+  ApiKey : "5Vqg81rmkG59NzsKm22qi3S3MOnZyYhvaymCXVN7"
 };

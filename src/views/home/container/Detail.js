@@ -15,23 +15,25 @@ const Detail = (props) => {
       const  consultar = async () => {         
             const serviceUrl = `${GLOBALS.rootAPI}/reviews`;;
             let config = {
-              headers: {
-                          "Content-Type": "application/json"
+              headers: {                          
+                          "Content-Type": "application/json",
+                          "x-api-key": "5Vqg81rmkG59NzsKm22qi3S3MOnZyYhvaymCXVN7"                        
               
               }
             };
-         let response =  await axios.get(serviceUrl,config);
          
-         console.log(response.data);
+         let response =  await axios.get(serviceUrl,config ) ;
+         
+         
          if(response.data.length > 0){    
             var testIfJson = response.data;
-            if (typeof testIfJson == "object"){
-                //Json
-                console.log("soy json");
-            } else {
-                //Not Json
-                console.log("shit");
-            } 
+            // if (typeof testIfJson == "object"){
+            //     //Json
+            //     console.log("soy json");
+            // } else {
+            //     //Not Json
+            //     console.log("shit");
+            // } 
              setReviews(response.data);
              setinitLoading(false);
 

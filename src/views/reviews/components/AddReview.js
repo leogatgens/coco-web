@@ -21,14 +21,15 @@ class AddReview extends React.Component{
         const serviceUrl = `${GLOBALS.rootAPI}/reviews`;;
         let config = {
             headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "x-api-key": GLOBALS.ApiKey                
         
             }
          };
 
          
         axios.post(serviceUrl,newReview ,config) //then es usando promises, se puede asignar a una variable si quiere sin promises
-        .then(response =>  {console.log(response.data); this.props.onAddReview(newReview);} );
+        .then(response =>  { this.props.onAddReview(newReview);} );
       
         
     //    const response = await axios.post('https://reqres.in/api/articles', review);

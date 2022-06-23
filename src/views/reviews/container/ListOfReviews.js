@@ -26,7 +26,8 @@ const ListOfReviews = (props) =>{
             const serviceUrl = `${GLOBALS.rootAPI}/reviews`;;
             let config = {
               headers: {
-                          "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "x-api-key": GLOBALS.ApiKey
               
               }
             };
