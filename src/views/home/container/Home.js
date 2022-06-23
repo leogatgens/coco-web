@@ -24,7 +24,7 @@ class Home extends React.Component {
       let config = {
         headers: {    
           "Content-Type": "application/json",      
-          "x-api-key": "5Vqg81rmkG59NzsKm22qi3S3MOnZyYhvaymCXVN7"                      
+          "X-API-Key": GLOBALS.ApiKey
         
       }
     };      

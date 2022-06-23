@@ -17,7 +17,7 @@ const Detail = (props) => {
             let config = {
               headers: {                          
                           "Content-Type": "application/json",
-                          "x-api-key": "5Vqg81rmkG59NzsKm22qi3S3MOnZyYhvaymCXVN7"                        
+                          "x-api-key": GLOBALS.ApiKey                     
               
               }
             };
