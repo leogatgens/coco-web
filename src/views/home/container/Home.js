@@ -25,6 +25,7 @@ class Home extends React.Component {
         headers: {    
           "Content-Type": "application/json",      
           "X-API-Key": GLOBALS.ApiKey
+          
         
       }
     };      

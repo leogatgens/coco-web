@@ -16,8 +16,8 @@ const Detail = (props) => {
             const serviceUrl = `${GLOBALS.rootAPI}/reviews`;;
             let config = {
               headers: {                          
-                          "Content-Type": "application/json",
-                          "x-api-key": GLOBALS.ApiKey                     
+                          "Content-Type": "application/json"
+                         ,"x-api-key": GLOBALS.ApiKey                     
               
               }
             };
@@ -25,15 +25,7 @@ const Detail = (props) => {
          let response =  await axios.get(serviceUrl,config ) ;
          
          
-         if(response.data.length > 0){    
-            var testIfJson = response.data;
-            // if (typeof testIfJson == "object"){
-            //     //Json
-            //     console.log("soy json");
-            // } else {
-            //     //Not Json
-            //     console.log("shit");
-            // } 
+         if(response.data.length > 0){               
              setReviews(response.data);
              setinitLoading(false);
 

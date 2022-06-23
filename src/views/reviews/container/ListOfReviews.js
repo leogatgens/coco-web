@@ -35,7 +35,7 @@ const ListOfReviews = (props) =>{
          
         
          if(response.data.length > 0){    
-            var testIfJson = response.data;     
+              
              setReviews(response.data);
              setinitLoading(false);
 
