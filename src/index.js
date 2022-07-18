@@ -1,38 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './views/home/container/Home';
 import reportWebVitals from './reportWebVitals';
-import ListOfReviews from './views/reviews/container/ListOfReviews';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import reducers from './reducers'
+import App from './views/App'
 //Por alguna razon stric mode muestrar didmount dos veces por tener esto https://andreasheissenberger.medium.com/react-components-render-twice-any-way-to-fix-this-91cf23961625
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
-  <React.StrictMode>
-    
-    <BrowserRouter>
-    
-    <Routes>
-  <Route path="/" element={<App />}>
-    {/* <Route path="expenses" element={<Expenses />} />
-    <Route path="invoices" element={<Invoices />} /> */}
-    <Route
-      path="*"
-      element={
-        <main style={{ padding: "1rem" }}>
-          <p>There's nothing here!</p>
-        </main>
-      }
-    />
-  </Route>
-  <Route path="/allreviews" element={<ListOfReviews></ListOfReviews>} />
-</Routes>
-
-    </BrowserRouter>
+  <React.StrictMode>    
+    <Provider store={createStore(reducers)}>
+      <App></App>
+    </Provider>
   </React.StrictMode>
  
 );
