@@ -5,11 +5,12 @@ import Loading from '../../../shared/component/Loading';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import {GLOBALS} from "../../../globals/globals-variables"
+
+
 const Detail = (props) => {  
     const [initLoading, setinitLoading] = useState(true);
     const [reviews, setReviews] = useState([{id: "",
     name: ""}]);
-
 
     useEffect(() => {     
       const  consultar = async () => {         
@@ -61,18 +62,15 @@ const Detail = (props) => {
     }
 
     const navigate = useNavigate();
-   const ShowMessage = (e)  =>{
- 
-     navigate('/allreviews')
-  
+   const ShowMessage = (e)  =>{ 
+     navigate('/allreviews')  
     }
   
     const ShowBookNowPage = (e) =>{
-        alert("Redirect to new page booking");
-        
+        alert("Redirect to new page booking");        
     }
-return(          
-    
+
+return(              
     <div className="detail">
     <div className="description">
         <p className="paragraph">

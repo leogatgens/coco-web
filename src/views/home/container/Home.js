@@ -12,16 +12,13 @@ import { fetchImages } from "../../../actions";
 //Se utiliza una clase para ver como se utilizar una clase con state y props
 class Home extends React.Component {
   constructor(props) {    
-    super(props);
-    
+    super(props);    
   }
   
   componentDidMount() {   
     this.props.fetchImages();
   }
   render() {
-    
-    
     return (
       <div className="container">
         <Header data={notifications}></Header>
