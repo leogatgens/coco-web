@@ -6,56 +6,21 @@ import Detail from "./Detail";
 import Overview from "../components/Overview";
 import { notifications } from "../../../globals/data";
 import React from "react";
-import axios from "axios";
-import { GLOBALS } from "../../../globals/globals-variables";
 import { connect } from "react-redux";
-import { fetchReviews } from "../../../actions";
+import { fetchImages } from "../../../actions";
 
 //Se utiliza una clase para ver como se utilizar una clase con state y props
 class Home extends React.Component {
-  constructor(props) {
-    console.log(props);
+  constructor(props) {    
     super(props);
-    this.state = { initLoading: true, galeryimages: [] };
+    
   }
-  //Metodo async para llamar un API con AXIOS
-  GetGalleryImages = async () => {
-    try {
-      const serviceUrl = `${GLOBALS.rootAPI}/gallery`;
-      let config = {
-        headers: {
-          "Content-Type": "application/json",
-          "X-API-Key": GLOBALS.ApiKey,
-        },
-      };
-      await axios
-        .get(serviceUrl, config) //then es usando promises, se puede asignar a una variable si quiere sin promises
-        .then((response) => {
-          this.setState({
-            initLoading: false,
-            galeryimages: response.data,
-          });
-        })
-        .catch((ex) => {
-          this.setState({
-            initLoading: false,
-          });
-          console.log(ex.toString());
-        });
-    } catch (err) {
-      this.setState({
-        initLoading: false,
-      });
-      console.log(err);
-    }
-  };
-  componentDidMount() {
-    if (this.state.galeryimages.length === 0) {
-      this.GetGalleryImages();
-    }
-    this.props.fetchReviews();
+  
+  componentDidMount() {   
+    this.props.fetchImages();
   }
   render() {
+    
     
     return (
       <div className="container">
@@ -64,8 +29,8 @@ class Home extends React.Component {
           <SideBar></SideBar>
           <main className="hotel-view">
             <Gallery
-              data={this.state.galeryimages}
-              isLoading={this.state.initLoading}
+              data={this.props.imagesData}
+              isLoading={this.props.imagesData.length > 0 ? false : true}
             ></Gallery>
             <Overview></Overview>
             <Detail />
@@ -76,8 +41,8 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { reviewsData: state.reviewsData };
+const mapStateToProps = (state, ownProps) => {  
+  return { imagesData: state.images};//Obtiene el estado del combineReducers
 };
 
-export default connect(mapStateToProps, { fetchReviews: fetchReviews })(Home); //Al inyectar el action automaticamente crea el connect crea un dispatcher
+export default connect(mapStateToProps, { fetchImages: fetchImages })(Home); //Al inyectar el action automaticamente crea el connect crea un dispatcher

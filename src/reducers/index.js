@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
 
-import getDataReducer from './demoReducer' 
+import imagesReducer from './imagesReducer' 
+import reviewsReducer from './reviewsReducer' 
 import selectedHotelReducer from './selectedHotelReducer'
 
 
 
 export default combineReducers({    
     selectedHotelReducer : selectedHotelReducer,
-    reviewsData : getDataReducer
+    reviewsData : reviewsReducer,
+    images : imagesReducer
 });

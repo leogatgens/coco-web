@@ -18,7 +18,22 @@ export const fetchReviews = (reviewsData) =>
                  ,"x-api-key": GLOBALS.ApiKey
       }
     };
-      let response =  await axios.get(serviceUrl,config ) ;
-      dispatch({type : 'FETCH_REVIEWS', payload : response.data})
+      let response =  await axios.get(serviceUrl,config );
+      dispatch({type : 'FETCH_REVIEWS', payload : response.data});
+    }
+}
+
+export const fetchImages = (imagesData) =>
+{    
+    return async (dispatch) => {
+    const serviceUrl = `${GLOBALS.rootAPI}/gallery`;;
+    let config = {
+      headers: {
+                  "Content-Type": "application/json"
+                 ,"x-api-key": GLOBALS.ApiKey
+      }
+    };
+      let response =  await axios.get(serviceUrl,config );
+      dispatch({type : 'FETCH_IMAGES', payload : response.data});
     }
 }

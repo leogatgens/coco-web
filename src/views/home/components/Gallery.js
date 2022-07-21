@@ -6,7 +6,8 @@ const Gallery = (props) => {
     if(props.isLoading){
        return <Loading></Loading>
     }else{
-        var count  = props.data.length;
+     
+         var count =  props.data.length;
         return  <div className="gallery">
         <figure className="gallery__item">
         {count === 0

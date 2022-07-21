@@ -3,7 +3,7 @@ export default (state = [],action) =>{
         case "FETCH_REVIEWS" :{
             console.log(action);        
             return action.payload;
-        }
+        }       
         default : return state; // never return undefined
     }
 };
