@@ -21,20 +21,14 @@ const Detail = (props) => {
                          ,"x-api-key": GLOBALS.ApiKey                     
               
               }
-            };
-         
-         let response =  await axios.get(serviceUrl,config ) ;
-         
-         
+            };         
+         let response =  await axios.get(serviceUrl,config);          
          if(response.data.length > 0){               
              setReviews(response.data);
              setinitLoading(false);
-
          }else{
             setinitLoading(false);
-         }
-
-         
+         }         
       }  
 
 
