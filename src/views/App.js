@@ -7,11 +7,8 @@ import {
   Route,
 } from "react-router-dom";
 import {Helmet} from "react-helmet";
-const App = () =>{
-
-  
+const App = () =>{  
     return(
-
         <BrowserRouter>    
          <Helmet>
                 <meta charSet="utf-8" />

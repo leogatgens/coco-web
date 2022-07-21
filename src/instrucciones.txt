@@ -21,3 +21,12 @@ Para liberar con npm install -g vercel
 
     NPM npm run watch:sass --- para ver cambios en localhost
     npm rum build:css --- Para compilar el sass para liberarlo.
+
+    ----------------------------------------
+----------------PARA REDUX---------------
+----------------------------------------
+npm install --save redux
+npm install --save react-redux
+npm install --save redux-thunk para usar axios.
+
+
