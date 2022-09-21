@@ -1,20 +1,5 @@
 import React from 'react';
-import Navigation from '../navigation/Navigation'
-import ListOfReviews from '../views/reviews/container/ListOfReviews';
-import Home from '../views/home/container/Home'
-import {createBrowserHistory} from 'history';
+import DefaultTopLevel from '../Dependencies'
 
-const history = createBrowserHistory();
-const DefaultRoutes = () =>
-    <Navigation history={history}
-    Home={Home}
-    ListOfReviews={ListOfReviews}/>
-
-const App = () =>{  
-    return(
-        <DefaultRoutes/>       
-    )
-
-
-}
+const App = () => <DefaultTopLevel/>
 export default App; 
